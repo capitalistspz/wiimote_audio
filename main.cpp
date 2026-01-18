@@ -6,6 +6,7 @@
 #include <sndcore2/core.h>
 #include <padscore/wpad.h>
 #include <sysapp/launch.h>
+#include <cstdlib>
 
 #include <snd/internal/RemoteSpeakerManager.h>
 
@@ -83,7 +84,7 @@ int main() {
 
         speaker->Finalize(nullptr);
         speakerManager->Finalize();
-
+        std::free(out);
     }
     else {
         WHBLogPrint("Failed to open and decode vorbis file");
